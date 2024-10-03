@@ -1,0 +1,12 @@
+setwd("D:/DATASHEET")
+getwd()
+library(openxlsx)
+library(readxl)
+Kaptai_datasheet <- read.xlsx("Kaptai_datasheet.xlsx")
+Kaptai_datasheet
+library(sciplot)
+par(mfrow=c(1,1))
+bargraph.CI(x.factor=study_area,response=Diameter_cm,ylim=c(0,200),ylab="Diameter",xlab="study_area",las=1,data=Kaptai_datasheet,col=c("red","green","blue"),main="p=0.05")
+str(Kaptai_datasheet)
+bargraph.CI(x.factor=study_area,group=Species,response=Diameter_cm,ylim=c(0,300),ylab="Diameter",xlab="study_area",las=1,data=Kaptai_datasheet,legend=T,col=c("red","black","green","blue","yellow"),main="p=0.05")
+lineplot.CI((Height_m), Diameter_cm,group=Species, ylim=c(10,300),ylab=" Diameter",xlab="Height",x.cont=T,legend=T,data=Kaptai_datasheet)
